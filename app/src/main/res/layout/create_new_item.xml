@@ -19,13 +19,14 @@
             android:text="Nome"
             android:gravity="center"
             android:layout_margin="5dp"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
         <EditText
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:id="@+id/nameET"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -33,13 +34,14 @@
             android:text="Descrição"
             android:gravity="center"
             android:layout_margin="5dp"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:id="@+id/descrET"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -47,13 +49,14 @@
             android:text="Informações"
             android:gravity="center"
             android:layout_margin="5dp"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:id="@+id/infoET"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -61,13 +64,14 @@
             android:text="Receita"
             android:gravity="center"
             android:layout_margin="5dp"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
         <EditText
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:elevation="10dp"/>
+            android:elevation="10dp"
+            android:id="@+id/recipeET"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -75,9 +79,9 @@
             android:text="Upload Imagem"
             android:gravity="center"
             android:layout_margin="10dp"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
-        <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -89,7 +93,9 @@
             android:layout_height="wrap_content"
             android:text="Criar"
             android:layout_gravity="center"
-            android:id="@+id/btCreate"/>
+            android:id="@+id/btCreate"
+            android:background="@color/colorPrimary"
+            android:layout_margin="5dp"/>
 
     </LinearLayout>
 

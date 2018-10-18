@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "536073670676",
+    "firebase_url": "https://ecologicalhouse-a52b3.firebaseio.com",
+    "project_id": "ecologicalhouse-a52b3",
+    "storage_bucket": "ecologicalhouse-a52b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536073670676:android:c1e7be7e1ab949ff",
+        "android_client_info": {
+          "package_name": "com.example.xandi.ecologicalhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536073670676-n4186p6skepcepebsm6vmtrpl296so44.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.xandi.ecologicalhouse",
+            "certificate_hash": "07f0cd2ec005fff02a07de845f8870cbe56d36a6"
+          }
+        },
+        {
+          "client_id": "536073670676-10tt32qi704jr6arput15bpsgd85rihb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8TIbDjXaE95FiNcJ2TqY9ck7YTuaXUEM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536073670676-10tt32qi704jr6arput15bpsgd85rihb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

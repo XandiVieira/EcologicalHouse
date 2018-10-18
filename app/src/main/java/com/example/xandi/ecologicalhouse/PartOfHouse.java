@@ -1,5 +1,6 @@
 package com.example.xandi.ecologicalhouse;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
@@ -9,6 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class PartOfHouse extends AppCompatActivity {
@@ -17,11 +26,15 @@ public class PartOfHouse extends AppCompatActivity {
     private ItemAdapter itemAdapter;
     private ListView itemsLV;
     private String partOfHouse;
+    private DatabaseReference mDatabaseRef;
+    private FirebaseDatabase mFirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        startFirebase();
 
         itemsLV = findViewById(R.id.cardsLV);
 
@@ -29,10 +42,29 @@ public class PartOfHouse extends AppCompatActivity {
         partOfHouse = bundleTitle.getString("partOfHouse");
         bundleTitle.getString("partOfHouse");
 
-        setTitle(partOfHouse);
+        setTitle("hdsjkhskjhsjkchkjds");
 
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         itemArrayList = new ArrayList<Item>();
+
+        if(partOfHouse!=null)
+        mDatabaseRef.child(partOfHouse).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    itemArrayList.add(snap.getValue(Item.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        if(itemArrayList!=null)
         itemAdapter = new ItemAdapter(this, itemArrayList);
+        if(itemsLV!=null)
         itemsLV.setAdapter(itemAdapter);
     }
 
@@ -53,5 +85,11 @@ public class PartOfHouse extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void startFirebase() {
+        FirebaseApp.initializeApp(getApplicationContext());
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseRef = mFirebaseDatabase.getReference();
     }
 }

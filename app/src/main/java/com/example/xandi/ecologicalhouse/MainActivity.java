@@ -23,27 +23,107 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*partsOfHouse.add(findViewById(R.id.btRoom1));
-        partsOfHouse.add(findViewById(R.id.btRoom2));
-        partsOfHouse.add(findViewById(R.id.btRoom3));
-        partsOfHouse.add(findViewById(R.id.btRoom4));
-        partsOfHouse.add(findViewById(R.id.btRoom5));
-        partsOfHouse.add(findViewById(R.id.btRoom6));
-        partsOfHouse.add(findViewById(R.id.btRoom7));
-        partsOfHouse.add(findViewById(R.id.btRoom8));
-        partsOfHouse.add(findViewById(R.id.btRoom9));
-        partsOfHouse.add(findViewById(R.id.btRoom10));*/
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom1));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom2));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom3));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom4));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom5));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom6));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom7));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom8));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom9));
+        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom10));
 
-        for(int i=0; i<partsOfHouse.size(); i++){
-            final int finalI = i;
-            partsOfHouse.get(i).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                    intent.putExtra("partOfHouse", partsOfHouse.get(finalI).getId());
-                    startActivity(intent);
-                }
-            });
-        }
+        partsOfHouse.get(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", "Room");
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", "kitchen");
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(2).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(3).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(4).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(5).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(6).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(7).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(8).getId());
+                startActivity(intent);
+            }
+        });
+
+        partsOfHouse.get(9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
+                intent.putExtra("partOfHouse", partsOfHouse.get(9).getId());
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
