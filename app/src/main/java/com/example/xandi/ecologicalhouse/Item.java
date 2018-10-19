@@ -1,10 +1,11 @@
 package com.example.xandi.ecologicalhouse;
 
 import android.media.Image;
+import android.net.Uri;
 
 public class Item {
 
-    private Image image;
+    private String image;
     private String name;
     private String description;
     private String info;
@@ -13,7 +14,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(Image image, String name, String description, String info, String recipe) {
+    public Item(String image, String name, String description, String info, String recipe) {
         this.image = image;
         this.name = name;
         this.description = description;
@@ -21,11 +22,11 @@ public class Item {
         this.recipe = recipe;
     }
 
-    public Image getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

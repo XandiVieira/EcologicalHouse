@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "kitchen");
+                intent.putExtra("partOfHouse", "Kitchen");
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(2).getId());
+                intent.putExtra("partOfHouse", "Bathroom");
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(3).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(4).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(5).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(6).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(7).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(8).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", partsOfHouse.get(9).getId());
+                intent.putExtra("partOfHouse", "teste");
                 startActivity(intent);
             }
         });

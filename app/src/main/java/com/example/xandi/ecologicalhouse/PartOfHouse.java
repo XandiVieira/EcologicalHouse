@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -22,38 +24,40 @@ import java.util.ArrayList;
 
 public class PartOfHouse extends AppCompatActivity {
 
-    private ArrayList<Item> itemArrayList;
-    private ItemAdapter itemAdapter;
-    private ListView itemsLV;
-    private String partOfHouse;
-    private DatabaseReference mDatabaseRef;
+    private ArrayList<Item> itemArrayList = new ArrayList<Item>();
     private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
+
+    private ListView itemsLV;
+    private ItemAdapter itemAdapter;
+    private String partOfHouse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        startFirebase();
+        setContentView(R.layout.part_of_house);
 
         itemsLV = findViewById(R.id.cardsLV);
+
+        startFirebase();
 
         Bundle bundleTitle = getIntent().getExtras();
         partOfHouse = bundleTitle.getString("partOfHouse");
         bundleTitle.getString("partOfHouse");
 
-        setTitle("hdsjkhskjhsjkchkjds");
+        setTitle(partOfHouse);
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
-        itemArrayList = new ArrayList<Item>();
+        Toast.makeText(this, partOfHouse, Toast.LENGTH_SHORT).show();
 
         if(partOfHouse!=null)
-        mDatabaseRef.child(partOfHouse).addValueEventListener(new ValueEventListener() {
+        mDatabaseReference.child(partOfHouse).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()){
                     itemArrayList.add(snap.getValue(Item.class));
                 }
+                itemAdapter = new ItemAdapter(getApplicationContext(), itemArrayList);
+                itemsLV.setAdapter(itemAdapter);
             }
 
             @Override
@@ -61,11 +65,6 @@ public class PartOfHouse extends AppCompatActivity {
 
             }
         });
-
-        if(itemArrayList!=null)
-        itemAdapter = new ItemAdapter(this, itemArrayList);
-        if(itemsLV!=null)
-        itemsLV.setAdapter(itemAdapter);
     }
 
     @Override
@@ -88,8 +87,8 @@ public class PartOfHouse extends AppCompatActivity {
     }
 
     private void startFirebase() {
-        FirebaseApp.initializeApp(getApplicationContext());
+        FirebaseApp.initializeApp(this);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseRef = mFirebaseDatabase.getReference();
+        mDatabaseReference = mFirebaseDatabase.getReference();
     }
 }

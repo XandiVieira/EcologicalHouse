@@ -1,10 +1,11 @@
 package com.example.xandi.ecologicalhouse;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,19 +15,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class CreateNewItem extends AppCompatActivity {
 
     private ImageView uploadImage;
     private Button criar;
+
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
-
-    private Image image;
 
     private EditText nameET;
     private EditText descriptionET;
@@ -34,6 +41,7 @@ public class CreateNewItem extends AppCompatActivity {
     private EditText recipeET;
     private String partOfHouse;
     private DatabaseReference mDatabaseRef;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +53,18 @@ public class CreateNewItem extends AppCompatActivity {
         descriptionET = findViewById(R.id.descrET);
         infoET = findViewById(R.id.infoET);
         recipeET = findViewById(R.id.recipeET);
+        criar = findViewById(R.id.btCreate);
+
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
         Bundle bundleTitle = getIntent().getExtras();
         partOfHouse = bundleTitle.getString("partOfHouse");
+
+        //Firebase
+        FirebaseStorage storage;
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,25 +73,22 @@ public class CreateNewItem extends AppCompatActivity {
             }
         });
 
-        criar = findViewById(R.id.btCreate);
-
         criar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(validar()) {
-                    Item item = new Item(image, nameET.getText().toString(), descriptionET.getText().toString(), infoET.getText().toString(), recipeET.getText().toString());
-                    mDatabaseRef.child(partOfHouse).setValue(item);
+                    uploadImage();
                 }
             }
         });
     }
 
     private boolean validar() {
-        if(nameET.getText() != null){
+        if(nameET.getText() == null){
             Toast.makeText(this, "Preencha o campo nome!", Toast.LENGTH_SHORT).show();
-        }else if(descriptionET.getText() != null){
+        }else if(descriptionET.getText() == null){
             Toast.makeText(this, "Preencha o campo descrição!", Toast.LENGTH_SHORT).show();
-        }else if(infoET.getText() != null){
+        }else if(infoET.getText() == null){
             Toast.makeText(this, "Preencha o campo informações!", Toast.LENGTH_SHORT).show();
         }else{
             return true;
@@ -105,6 +118,49 @@ public class CreateNewItem extends AppCompatActivity {
             {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void uploadImage() {
+
+        if(filePath != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(CreateNewItem.this, "Uploaded", Toast.LENGTH_SHORT).show();
+
+                            Uri downloadUrl = taskSnapshot.getUploadSessionUri();
+
+                            Item item = new Item(downloadUrl.toString(), nameET.getText().toString(), descriptionET.getText().toString(), infoET.getText().toString(), recipeET.getText().toString());
+                            mDatabaseRef.child(partOfHouse).push().setValue(item);
+                            Intent intent = new Intent(getApplicationContext(), PartOfHouse.class);
+                            intent.putExtra("partOfHouse", partOfHouse);
+                            startActivity(intent);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(CreateNewItem.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
         }
     }
 }

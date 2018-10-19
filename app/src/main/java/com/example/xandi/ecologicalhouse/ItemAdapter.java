@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
@@ -41,6 +43,13 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             TextView cardInfo = (TextView) view.findViewById(R.id.cardInfo);
             TextView cardRecipe = (TextView) view.findViewById(R.id.cardRecipe);
 
+            cardTitle.setText(item.getName());
+            cardDescription.setText(item.getDescription());
+            cardInfo.setText(item.getInfo());
+            cardRecipe.setText(item.getRecipe());
+            Glide.with(getContext())
+                    .load(item.getImage())
+                    .into(cardImage);
         }
 
         return view;
