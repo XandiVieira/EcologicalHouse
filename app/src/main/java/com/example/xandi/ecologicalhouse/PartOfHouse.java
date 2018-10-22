@@ -3,22 +3,27 @@ package com.example.xandi.ecologicalhouse;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -32,12 +37,15 @@ public class PartOfHouse extends AppCompatActivity {
     private ItemAdapter itemAdapter;
     private String partOfHouse;
 
+    private TextView btSeeMore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.part_of_house);
 
         itemsLV = findViewById(R.id.cardsLV);
+        btSeeMore = findViewById(R.id.btSeeMore);
 
         startFirebase();
 
@@ -56,6 +64,7 @@ public class PartOfHouse extends AppCompatActivity {
                 for (DataSnapshot snap : dataSnapshot.getChildren()){
                     itemArrayList.add(snap.getValue(Item.class));
                 }
+
                 itemAdapter = new ItemAdapter(getApplicationContext(), itemArrayList);
                 itemsLV.setAdapter(itemAdapter);
             }

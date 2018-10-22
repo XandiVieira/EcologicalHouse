@@ -28,8 +28,8 @@
                 android:id="@+id/header">
 
                 <ImageView
-                    android:layout_width="55dp"
-                    android:layout_height="50dp"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
                     android:id="@+id/cardImage"
                     android:layout_margin="3dp"/>
 
@@ -74,12 +74,10 @@
 
             <TextView
                 android:id="@+id/btSeeMore"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="See More"
+                android:text="Ver Mais"
                 android:textSize="15sp"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/linkColor"/>

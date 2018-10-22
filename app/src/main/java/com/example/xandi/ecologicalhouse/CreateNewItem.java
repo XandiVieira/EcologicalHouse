@@ -129,7 +129,8 @@ public class CreateNewItem extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            final String uuid = UUID.randomUUID().toString();
+            StorageReference ref = storageReference.child("images/"+ uuid);
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -139,7 +140,7 @@ public class CreateNewItem extends AppCompatActivity {
 
                             Uri downloadUrl = taskSnapshot.getUploadSessionUri();
 
-                            Item item = new Item(downloadUrl.toString(), nameET.getText().toString(), descriptionET.getText().toString(), infoET.getText().toString(), recipeET.getText().toString());
+                            Item item = new Item(uuid, nameET.getText().toString(), descriptionET.getText().toString(), infoET.getText().toString(), recipeET.getText().toString());
                             mDatabaseRef.child(partOfHouse).push().setValue(item);
                             Intent intent = new Intent(getApplicationContext(), PartOfHouse.class);
                             intent.putExtra("partOfHouse", partOfHouse);
