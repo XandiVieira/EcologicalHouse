@@ -59,6 +59,16 @@
                         android:gravity="center"
                         android:textSize="20sp"/>
 
+                    <TextView
+                        android:id="@+id/btSeeMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ver Mais"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/linkColor"/>
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -71,16 +81,6 @@
                 android:textAlignment="center"
                 android:text="Info about harm and whatever"
                 android:textSize="15sp"/>
-
-            <TextView
-                android:id="@+id/btSeeMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ver Mais"
-                android:textSize="15sp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@color/linkColor"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

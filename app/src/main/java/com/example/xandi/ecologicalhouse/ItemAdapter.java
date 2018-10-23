@@ -26,6 +26,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
     private Context context;
     private ArrayList<Item> itemsList;
     private int height = 0;
+    private int headerHeight = 0;
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
 
@@ -58,6 +59,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             TextView cardInfo = (TextView) view.findViewById(R.id.cardInfo);
             TextView cardRecipe = (TextView) view.findViewById(R.id.cardRecipe);
             final RelativeLayout card_view = view.findViewById(R.id.card_view);
+            final LinearLayout header = view.findViewById(R.id.header);
             final TextView btSeeMore = view.findViewById(R.id.btSeeMore);
 
             cardTitle.setText(item.getName());
@@ -79,15 +81,13 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if(btSeeMore.getText().toString().equals("Ver Mais")){
                         height = card_view.getHeight();
-                        Log.i("altura", String.valueOf(card_view.getHeight()));
                         btSeeMore.setText("Reduzir");
                         card_view.getLayoutParams().height = RelativeLayout.LayoutParams.WRAP_CONTENT;
-                        /*view.setMinimumHeight(300);*/
                         return false;
                     }else{
                         btSeeMore.setText("Ver Mais");
-                        card_view.getLayoutParams().height = height;
-                        /*view.setMinimumHeight(75);*/
+                        headerHeight = header.getHeight();
+                        card_view.getLayoutParams().height = headerHeight;
                         return false;
                     }
                 }
