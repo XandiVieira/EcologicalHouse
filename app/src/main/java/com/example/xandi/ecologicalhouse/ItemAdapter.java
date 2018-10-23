@@ -1,13 +1,17 @@
 package com.example.xandi.ecologicalhouse;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +25,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 
     private Context context;
     private ArrayList<Item> itemsList;
+    private int height = 0;
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
 
@@ -52,6 +57,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             TextView cardDescription = (TextView) view.findViewById(R.id.cardDescription);
             TextView cardInfo = (TextView) view.findViewById(R.id.cardInfo);
             TextView cardRecipe = (TextView) view.findViewById(R.id.cardRecipe);
+            final RelativeLayout card_view = view.findViewById(R.id.card_view);
             final TextView btSeeMore = view.findViewById(R.id.btSeeMore);
 
             cardTitle.setText(item.getName());
@@ -72,12 +78,16 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if(btSeeMore.getText().toString().equals("Ver Mais")){
+                        height = card_view.getHeight();
+                        Log.i("altura", String.valueOf(card_view.getHeight()));
                         btSeeMore.setText("Reduzir");
-                        view.setMinimumHeight(300);
+                        card_view.getLayoutParams().height = RelativeLayout.LayoutParams.WRAP_CONTENT;
+                        /*view.setMinimumHeight(300);*/
                         return false;
                     }else{
                         btSeeMore.setText("Ver Mais");
-                        view.setMinimumHeight(75);
+                        card_view.getLayoutParams().height = height;
+                        /*view.setMinimumHeight(75);*/
                         return false;
                     }
                 }
