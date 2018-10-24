@@ -61,6 +61,7 @@ public class PartOfHouse extends AppCompatActivity {
         mDatabaseReference.child(partOfHouse).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemArrayList.clear();
                 for (DataSnapshot snap : dataSnapshot.getChildren()){
                     itemArrayList.add(snap.getValue(Item.class));
                 }
@@ -91,7 +92,7 @@ public class PartOfHouse extends AppCompatActivity {
                 startActivity(intent);
                 break;
 
-            case R.id.arrow:
+            case R.id.action_back:
                 Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);
                 break;
@@ -107,4 +108,5 @@ public class PartOfHouse extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference();
     }
+
 }

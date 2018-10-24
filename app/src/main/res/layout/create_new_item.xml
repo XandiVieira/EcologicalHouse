@@ -4,10 +4,12 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:elevation="20dp"
         android:orientation="vertical"
         android:background="@color/white"
@@ -22,11 +24,12 @@
             android:textSize="15sp"/>
 
         <EditText
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:elevation="10dp"
-            android:id="@+id/nameET"/>
+            android:id="@+id/nameET"
+            android:hint="Escova de dente de bambú"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -37,11 +40,12 @@
             android:textSize="15sp"/>
 
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:elevation="10dp"
-            android:id="@+id/descrET"/>
+            android:id="@+id/descrET"
+            android:hint="Substitui a escova tradicional"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -52,11 +56,12 @@
             android:textSize="15sp"/>
 
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:elevation="10dp"
-            android:id="@+id/infoET"/>
+            android:id="@+id/infoET"
+            android:hint="Biodegradável..."/>
 
         <TextView
             android:layout_width="match_parent"
@@ -67,7 +72,7 @@
             android:textSize="15sp"/>
 
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:elevation="10dp"
