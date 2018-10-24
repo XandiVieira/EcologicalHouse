@@ -3,11 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/arrow"
+        android:icon="@drawable/baseline_arrow_back_black_18dp"
+        android:title="Voltar"
+        app:showAsAction="always">
+    </item>
+
+    <item
         android:id="@+id/action_add"
         android:icon="@drawable/icon_add"
         android:title="Novo"
         app:showAsAction="always">
-
     </item>
 
 </menu>

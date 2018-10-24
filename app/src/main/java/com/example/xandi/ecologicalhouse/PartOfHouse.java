@@ -89,10 +89,17 @@ public class PartOfHouse extends AppCompatActivity {
                 Intent intent = new Intent(this, CreateNewItem.class);
                 intent.putExtra("partOfHouse", partOfHouse);
                 startActivity(intent);
+                break;
+
+            case R.id.arrow:
+                Intent intent2 = new Intent(this, MainActivity.class);
+                startActivity(intent2);
+                break;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+        return false;
     }
 
     private void startFirebase() {
