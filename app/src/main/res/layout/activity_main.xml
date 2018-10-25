@@ -7,50 +7,103 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/telhado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/telhado"
+            android:layout_centerHorizontal="true" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-80dp"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/btRoom7"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/button_outros"
+            android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:id="@+id/btRoom1"/>
+            android:id="@+id/btRoom1"
+            android:src="@drawable/button_sala"
+            android:layout_margin="5dp" />
+
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:id="@+id/btRoom2"/>
+            android:id="@+id/btRoom2"
+            android:src="@drawable/button_cozinha"
+            android:layout_margin="5dp"/>
+
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:id="@+id/btRoom3"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom4"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom5"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom6"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom7"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom8"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom9"/>
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/btRoom10"/>
+            android:id="@+id/btRoom3"
+            android:src="@drawable/button_garagem"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btRoom4"
+                android:src="@drawable/button_quarto"
+                android:layout_margin="5dp"/>
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btRoom5"
+                android:src="@drawable/button_banheiro"
+                android:layout_margin="5dp"/>
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btRoom6"
+                android:src="@drawable/button_jardim"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
 
     </LinearLayout>
 

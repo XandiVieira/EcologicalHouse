@@ -30,15 +30,12 @@ public class MainActivity extends AppCompatActivity {
         partsOfHouse.add((ImageButton) findViewById(R.id.btRoom5));
         partsOfHouse.add((ImageButton) findViewById(R.id.btRoom6));
         partsOfHouse.add((ImageButton) findViewById(R.id.btRoom7));
-        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom8));
-        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom9));
-        partsOfHouse.add((ImageButton) findViewById(R.id.btRoom10));
 
         partsOfHouse.get(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "Room");
+                intent.putExtra("partOfHouse", "Sala");
                 startActivity(intent);
             }
         });
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "Kitchen");
+                intent.putExtra("partOfHouse", "Cozinha");
                 startActivity(intent);
             }
         });
@@ -56,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "Bathroom");
+                intent.putExtra("partOfHouse", "Garagem");
                 startActivity(intent);
             }
         });
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
+                intent.putExtra("partOfHouse", "Quarto");
                 startActivity(intent);
             }
         });
@@ -74,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
+                intent.putExtra("partOfHouse", "Banheiro");
                 startActivity(intent);
             }
         });
@@ -83,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
+                intent.putExtra("partOfHouse", "Jardim");
                 startActivity(intent);
             }
         });
@@ -92,38 +89,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
+                intent.putExtra("partOfHouse", "Outros");
                 startActivity(intent);
             }
         });
-
-        partsOfHouse.get(7).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
-                startActivity(intent);
-            }
-        });
-
-        partsOfHouse.get(8).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
-                startActivity(intent);
-            }
-        });
-
-        partsOfHouse.get(9).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PartOfHouse.class);
-                intent.putExtra("partOfHouse", "teste");
-                startActivity(intent);
-            }
-        });
-
-
     }
 }
